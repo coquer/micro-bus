@@ -21,7 +21,8 @@ before_script:
 
 script:
   - docker pull localstack/localstack
-  - HOSTNAME_EXTERNAL=http://localstack.default.svc.cluster.local:4576
+  - HOSTNAME_EXTERNAL=http://localhost:4576
+  - echo $HOSTNAME_EXTERNAL
   - docker-compose up -d & sleep 20
   - composer validate
   - vendor/bin/phpunit
